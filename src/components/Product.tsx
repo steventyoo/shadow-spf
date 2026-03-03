@@ -22,7 +22,7 @@ export default function Product() {
     offset: ["start end", "end start"],
   });
 
-  const rotateY = useTransform(scrollYProgress, [0, 1], [0, 360]);
+  const rotateY = useTransform(scrollYProgress, [0, 0.25, 0.5, 0.75, 1], [-15, 15, -10, 10, 0]);
 
   return (
     <section
