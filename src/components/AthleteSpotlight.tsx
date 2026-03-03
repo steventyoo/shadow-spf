@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 const socials = [
-  { label: "Instagram", handle: "@mattchoi_6", url: "https://instagram.com/mattchoi_6" },
+  { label: "Instagram", handle: "@mattchoi_6", url: "https://www.instagram.com/mattchoi_6/?hl=en" },
   { label: "TikTok", handle: "@mattchoi6", url: "https://tiktok.com/@mattchoi6" },
   { label: "YouTube", handle: "Matt Choi", url: "https://youtube.com/@mattchoi6" },
 ];
@@ -50,9 +50,9 @@ export default function AthleteSpotlight() {
           </p>
         </motion.div>
 
-        {/* Image grid + bio */}
-        <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 mb-16">
-          {/* Large hero image */}
+        {/* Image grid — hero + 4 sun images */}
+        <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 mb-16">
+          {/* Large hero image — walking on grass in the sun */}
           <motion.div
             className="flex-1 relative aspect-[4/3] rounded-md overflow-hidden"
             initial={{ opacity: 0, scale: 0.97 }}
@@ -62,7 +62,7 @@ export default function AthleteSpotlight() {
           >
             <Image
               src="/athletes/matt-choi-hero.jpg"
-              alt="Matt Choi"
+              alt="Matt Choi walking in the sun"
               fill
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 60vw"
@@ -85,40 +85,78 @@ export default function AthleteSpotlight() {
             </div>
           </motion.div>
 
-          {/* Right column — two smaller images stacked */}
-          <div className="lg:w-[280px] flex flex-row lg:flex-col gap-4">
+          {/* Right column — 2×2 grid of sun images */}
+          <div className="lg:w-[320px] grid grid-cols-2 gap-3">
+            {/* Golden hour — Running Club Member tank */}
             <motion.div
-              className="flex-1 relative aspect-square rounded-md overflow-hidden"
+              className="relative aspect-[3/4] rounded-md overflow-hidden"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.15 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
             >
               <Image
-                src="/athletes/matt-choi-portrait.jpg"
-                alt="Matt Choi portrait"
+                src="/athletes/matt-choi-sun-profile.png"
+                alt="Matt Choi golden hour training"
                 fill
                 className="object-cover"
-                sizes="280px"
+                sizes="160px"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#060606]/50 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#060606]/40 to-transparent" />
             </motion.div>
 
+            {/* Treadmill / sled — dramatic dark shot */}
             <motion.div
-              className="flex-1 relative aspect-square rounded-md overflow-hidden"
+              className="relative aspect-[3/4] rounded-md overflow-hidden"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <Image
+                src="/athletes/matt-choi-sun-treadmill.png"
+                alt="Matt Choi training"
+                fill
+                className="object-cover"
+                sizes="160px"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#060606]/40 to-transparent" />
+            </motion.div>
+
+            {/* Race photo — B&W shirtless */}
+            <motion.div
+              className="relative aspect-[3/4] rounded-md overflow-hidden"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
               <Image
-                src="/athletes/matt-choi-prerun.jpg"
-                alt="Matt Choi pre-run"
+                src="/athletes/matt-choi-sun-race.png"
+                alt="Matt Choi racing"
                 fill
                 className="object-cover"
-                sizes="280px"
+                sizes="160px"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#060606]/50 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#060606]/40 to-transparent" />
+            </motion.div>
+
+            {/* Track running — city skyline */}
+            <motion.div
+              className="relative aspect-[3/4] rounded-md overflow-hidden"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
+              <Image
+                src="/athletes/matt-choi-sun-track.png"
+                alt="Matt Choi track running"
+                fill
+                className="object-cover"
+                sizes="160px"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#060606]/40 to-transparent" />
             </motion.div>
           </div>
         </div>
@@ -195,9 +233,9 @@ export default function AthleteSpotlight() {
               />
             </div>
 
-            {/* Instagram embed placeholder — IG doesn't allow simple iframes */}
+            {/* Instagram CTA */}
             <a
-              href="https://instagram.com/mattchoi_6"
+              href="https://www.instagram.com/mattchoi_6/?hl=en"
               target="_blank"
               rel="noopener noreferrer"
               className="relative aspect-video rounded-md overflow-hidden bg-[#0a0a0a] border border-white/[0.04] flex flex-col items-center justify-center gap-3 group hover:border-[rgba(255,80,0,0.15)] transition-colors duration-300"
