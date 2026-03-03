@@ -13,7 +13,7 @@ const claims = [
 export default function ZeroClaims() {
   return (
     <section className="relative w-full bg-[#0a0a0a] border-y border-white/[0.04] overflow-hidden">
-      <div className="max-w-7xl mx-auto px-8 sm:px-12 lg:px-[72px] py-16 sm:py-20">
+      <div className="max-w-7xl mx-auto px-10 sm:px-14 md:px-16 lg:px-[72px] py-16 sm:py-20">
         <motion.div
           className="flex items-center gap-2.5 mb-10"
           initial={{ opacity: 0 }}

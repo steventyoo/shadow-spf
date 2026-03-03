@@ -51,7 +51,7 @@ export default function Hero() {
 
       {/* LEFT COPY */}
       <motion.div
-        className="absolute left-6 sm:left-12 md:left-16 lg:left-[72px] top-1/2 -translate-y-1/2 z-20 max-w-[320px]"
+        className="absolute left-10 sm:left-14 md:left-16 lg:left-[72px] top-1/2 -translate-y-1/2 z-20 max-w-[320px]"
         initial="hidden"
         animate="visible"
       >
@@ -134,7 +134,7 @@ export default function Hero() {
 
       {/* RIGHT COPY */}
       <motion.div
-        className="absolute right-6 sm:right-12 md:right-16 lg:right-[72px] top-1/2 -translate-y-1/2 z-20 text-right max-w-[200px] hidden md:block"
+        className="absolute right-10 sm:right-14 md:right-16 lg:right-[72px] top-1/2 -translate-y-1/2 z-20 text-right max-w-[200px] hidden md:block"
         initial="hidden"
         animate="visible"
       >
@@ -185,7 +185,7 @@ export default function Hero() {
 
       {/* BOTTOM BAR */}
       <motion.div
-        className="absolute bottom-7 left-6 sm:left-12 md:left-16 lg:left-[72px] right-6 sm:right-12 md:right-16 lg:right-[72px] flex items-center z-20"
+        className="absolute bottom-7 left-10 sm:left-14 md:left-16 lg:left-[72px] right-10 sm:right-14 md:right-16 lg:right-[72px] flex items-center z-20"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1.5 }}

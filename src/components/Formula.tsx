@@ -43,7 +43,7 @@ export default function Formula() {
         }}
       />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-8 sm:px-12 lg:px-[72px]">
+      <div className="relative z-10 max-w-7xl mx-auto px-10 sm:px-14 md:px-16 lg:px-[72px]">
         <div className="flex flex-col lg:flex-row gap-16 lg:gap-24">
           {/* LEFT — Header + Mini Stick */}
           <div className="flex-1">
