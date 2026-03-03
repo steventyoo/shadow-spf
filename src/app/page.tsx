@@ -2,6 +2,7 @@ import AnnouncementBar from "@/components/AnnouncementBar";
 import Hero from "@/components/Hero";
 import ZeroClaims from "@/components/ZeroClaims";
 import Product from "@/components/Product";
+import StickCollection from "@/components/StickCollection";
 import Formula from "@/components/Formula";
 import Testimonials from "@/components/Testimonials";
 import Athletes from "@/components/Athletes";
@@ -16,6 +17,7 @@ export default function Home() {
       <Hero />
       <ZeroClaims />
       <Product />
+      <StickCollection />
       <Formula />
       <Testimonials />
       <Athletes />
