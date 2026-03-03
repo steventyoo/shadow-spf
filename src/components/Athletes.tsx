@@ -6,7 +6,7 @@ import SportGrid from "./SportGrid";
 export default function Athletes() {
   return (
     <section className="relative w-full bg-[#080808] overflow-hidden py-24 lg:py-32">
-      <div className="relative z-10 max-w-7xl mx-auto px-10 sm:px-14 md:px-16 lg:px-[72px]">
+      <div className="relative z-10 max-w-7xl mx-auto px-12 sm:px-16 md:px-20 lg:px-24">
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-24 items-start">
           {/* LEFT — Copy */}
           <div className="lg:w-1/3 lg:sticky lg:top-32">

@@ -27,7 +27,7 @@ export default function AthleteSpotlight() {
         }}
       />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-10 sm:px-14 md:px-16 lg:px-[72px]">
+      <div className="relative z-10 max-w-7xl mx-auto px-12 sm:px-16 md:px-20 lg:px-24">
         {/* Section header */}
         <motion.div
           className="mb-16"

@@ -41,7 +41,7 @@ export default function Product() {
       />
       <div className="absolute inset-0 scan-lines z-[5]" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-10 sm:px-14 md:px-16 lg:px-[72px]">
+      <div className="relative z-10 max-w-7xl mx-auto px-12 sm:px-16 md:px-20 lg:px-24">
         <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
           {/* LEFT — Copy + Claims */}
           <div className="flex-1 max-w-xl">

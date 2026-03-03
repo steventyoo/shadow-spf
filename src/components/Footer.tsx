@@ -3,7 +3,7 @@
 export default function Footer() {
   return (
     <footer className="relative w-full bg-[#030303] border-t border-white/[0.04] py-12 lg:py-16">
-      <div className="max-w-7xl mx-auto px-10 sm:px-14 md:px-16 lg:px-[72px]">
+      <div className="max-w-7xl mx-auto px-12 sm:px-16 md:px-20 lg:px-24">
         <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
           {/* Left — Logo + Korean */}
           <div>

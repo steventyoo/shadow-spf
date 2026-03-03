@@ -16,7 +16,7 @@ export default function Waitlist() {
       />
       <div className="absolute inset-0 grid-texture opacity-50" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-10 sm:px-14 md:px-16 lg:px-[72px] text-center flex flex-col items-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-12 sm:px-16 md:px-20 lg:px-24 text-center flex flex-col items-center">
         {/* Eyebrow */}
         <motion.div
           className="text-[9px] tracking-[0.38em] text-[rgba(255,80,0,0.6)] uppercase mb-6"
