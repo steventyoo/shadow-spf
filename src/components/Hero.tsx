@@ -8,7 +8,7 @@ const fadeUp = {
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.8, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.8, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] as const },
   }),
 };
 
@@ -126,7 +126,7 @@ export default function Hero() {
           style={{ transform: "rotate(-8deg)" }}
           initial={{ opacity: 0, y: 60 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1], delay: 0.5 }}
+          transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] as const, delay: 0.5 }}
         >
           <StickModel size="lg" />
         </motion.div>
