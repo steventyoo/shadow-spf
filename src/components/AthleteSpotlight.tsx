@@ -76,7 +76,7 @@ export default function AthleteSpotlight() {
                   MATT CHOI
                 </div>
                 <div className="text-[8px] tracking-[0.28em] text-white/30 uppercase">
-                  Marathon · Ultra · HYROX
+                  Marathon · Ultra · Golf
                 </div>
               </div>
               <div className="text-[8px] tracking-[0.2em] text-[rgba(255,80,0,0.5)] uppercase">

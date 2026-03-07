@@ -16,7 +16,7 @@ const attrs = [
   "No White Cast",
   "No Drip  ·  No Sting",
   "Sweat-Proof Stick Format",
-  "HYROX  ·  Marathon  ·  Trail",
+  "Golf  ·  Marathon  ·  Trail",
 ];
 
 const stats = [

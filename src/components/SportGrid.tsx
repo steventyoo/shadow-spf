@@ -67,42 +67,12 @@ const sports = [
     ),
   },
   {
-    label: "HYROX",
+    label: "Golf",
     icon: (
       <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
-        <rect
-          x="2"
-          y="16"
-          width="7"
-          height="4.5"
-          rx="2.5"
-          fill="rgba(255,255,255,0.45)"
-        />
-        <rect
-          x="27"
-          y="16"
-          width="7"
-          height="4.5"
-          rx="2.5"
-          fill="rgba(255,255,255,0.45)"
-        />
-        <rect
-          x="9"
-          y="14.5"
-          width="5"
-          height="7"
-          rx="1.2"
-          fill="rgba(255,255,255,0.38)"
-        />
-        <rect
-          x="22"
-          y="14.5"
-          width="5"
-          height="7"
-          rx="1.2"
-          fill="rgba(255,255,255,0.38)"
-        />
-        <rect x="14" y="17" width="8" height="2.5" fill="rgba(255,255,255,0.32)" />
+        <circle cx="18" cy="28" r="3" stroke="rgba(255,255,255,0.45)" strokeWidth="1.5" fill="none" />
+        <line x1="18" y1="25" x2="18" y2="6" stroke="rgba(255,255,255,0.55)" strokeWidth="1.6" strokeLinecap="round" />
+        <path d="M18 6l8 4.5-8 4.5" fill="rgba(255,255,255,0.35)" />
       </svg>
     ),
   },

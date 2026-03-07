@@ -10,10 +10,10 @@ const testimonials = [
     detail: "Boston Qualifier",
   },
   {
-    quote: "Wore it through a full HYROX race. Zero reapplication. Zero white cast on my kit.",
+    quote: "18 holes in 95°F Texas sun. Zero reapplication. Zero white cast on my grip.",
     name: "James T.",
-    sport: "HYROX Athlete",
-    detail: "PFT Pro",
+    sport: "Golfer",
+    detail: "Single Digit Handicap",
   },
   {
     quote: "Finally a stick that works on 5-hour rides in direct sun. Matte finish, no grease.",

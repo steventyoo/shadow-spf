@@ -18,32 +18,32 @@ const sticks: Stick[] = [
     label: "HYDRO",
     accent: "rgb(60,130,255)",
     accentGlow: "rgba(60,130,255,0.35)",
-    height: "h-[220px] sm:h-[280px]",
-    capH: "h-[34px] sm:h-[44px]",
+    height: "h-[130px] sm:h-[170px]",
+    capH: "h-[26px] sm:h-[34px]",
   },
   {
     name: "Original",
     label: "SHADOW",
     accent: "rgb(255,80,0)",
     accentGlow: "rgba(255,80,0,0.4)",
-    height: "h-[270px] sm:h-[340px]",
-    capH: "h-[40px] sm:h-[52px]",
+    height: "h-[160px] sm:h-[210px]",
+    capH: "h-[30px] sm:h-[40px]",
   },
   {
     name: "Trail",
     label: "TRAIL",
     accent: "rgb(160,170,185)",
     accentGlow: "rgba(160,170,185,0.3)",
-    height: "h-[220px] sm:h-[280px]",
-    capH: "h-[34px] sm:h-[44px]",
+    height: "h-[130px] sm:h-[170px]",
+    capH: "h-[26px] sm:h-[34px]",
   },
   {
     name: "Glow",
     label: "GLOW",
     accent: "rgb(220,170,160)",
     accentGlow: "rgba(220,170,160,0.35)",
-    height: "h-[240px] sm:h-[300px]",
-    capH: "h-[36px] sm:h-[46px]",
+    height: "h-[140px] sm:h-[185px]",
+    capH: "h-[28px] sm:h-[36px]",
     white: true,
   },
 ];
@@ -140,7 +140,7 @@ export default function StickCollection() {
               >
                 {/* Cap */}
                 <div
-                  className={`w-[56px] sm:w-[78px] ${stick.capH} rounded-t-full rounded-b-[3px] relative`}
+                  className={`w-[100px] sm:w-[140px] ${stick.capH} rounded-t-full rounded-b-[3px] relative`}
                   style={{
                     background: stick.white
                       ? "linear-gradient(148deg, #f0ece8 0%, #e2ddd8 45%, #ebe7e3 70%, #d8d4d0 100%)"
@@ -161,7 +161,7 @@ export default function StickCollection() {
 
                 {/* Body */}
                 <div
-                  className={`w-[56px] sm:w-[78px] ${stick.height} rounded-t-[3px] rounded-b-[8px] relative overflow-hidden`}
+                  className={`w-[100px] sm:w-[140px] ${stick.height} rounded-t-[3px] rounded-b-[10px] relative overflow-hidden`}
                   style={{
                     background: stick.white
                       ? "linear-gradient(152deg, #ede9e5 0%, #e0dcd8 30%, #ebe7e3 55%, #d9d5d1 80%, #d5d1cd 100%)"
@@ -217,7 +217,7 @@ export default function StickCollection() {
                 {/* Floor reflection for white stick */}
                 {stick.white && (
                   <div
-                    className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-[50px] sm:w-[66px] h-[6px] blur-[6px] rounded-full"
+                    className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-[85px] sm:w-[120px] h-[6px] blur-[6px] rounded-full"
                     style={{
                       background: "rgba(220,170,160,0.25)",
                     }}

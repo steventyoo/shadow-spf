@@ -40,7 +40,7 @@ export default function Athletes() {
               transition={{ duration: 0.5, delay: 0.2 }}
             >
               Engineered for athletes who train in direct sun — marathon
-              runners, cyclists, HYROX competitors, and trail ultrarunners.
+              runners, cyclists, golfers, and trail ultrarunners.
               One stick. Every discipline.
             </motion.p>
           </div>
