@@ -38,7 +38,7 @@ export default function Waitlist() {
         >
           Be First.
           <br />
-          <span className="text-[rgb(255,80,0)]">Don&apos;t Get Burnt.</span>
+          <span className="text-[rgb(255,80,0)]">Don&apos;t Burn.</span>
         </motion.h2>
 
         {/* Subtitle */}
