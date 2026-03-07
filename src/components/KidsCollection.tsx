@@ -15,21 +15,21 @@ interface KidStick {
 const kidSticks: KidStick[] = [
   {
     name: "Mickey",
-    collab: "Lil' Shadow × Mickey",
+    collab: "Mickey × Shadow",
     accent: "rgb(230,40,40)",
     accentGlow: "rgba(230,40,40,0.3)",
     image: "/kids/mickey.png",
   },
   {
     name: "Pikachu",
-    collab: "Lil' Shadow × Pikachu",
+    collab: "Pikachu × Shadow",
     accent: "rgb(255,203,5)",
     accentGlow: "rgba(255,203,5,0.35)",
     image: "/kids/pikachu.png",
   },
   {
     name: "Hello Kitty",
-    collab: "Lil' Shadow × Hello Kitty",
+    collab: "Hello Kitty × Shadow",
     accent: "rgb(255,130,160)",
     accentGlow: "rgba(255,130,160,0.3)",
     image: "/kids/hellokitty.png",
@@ -65,6 +65,18 @@ const pulseVariants = {
       ease: "easeInOut" as const,
     },
   }),
+};
+
+/* Keychain gentle swing */
+const swingVariants = {
+  animate: {
+    rotate: [0, 3, 0, -3, 0],
+    transition: {
+      duration: 5,
+      repeat: Infinity,
+      ease: "easeInOut" as const,
+    },
+  },
 };
 
 export default function KidsCollection() {
@@ -214,6 +226,130 @@ export default function KidsCollection() {
             </motion.div>
           ))}
         </div>
+
+        {/* Keychain — bottom left */}
+        <motion.div
+          className="flex items-start gap-10 sm:gap-14 mb-16 sm:mb-20"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+        >
+          {/* Keychain unit */}
+          <motion.div
+            className="flex flex-col items-center"
+            variants={swingVariants}
+            animate="animate"
+            style={{ transformOrigin: "top center" }}
+          >
+            {/* Chain links */}
+            <div className="flex flex-col items-center">
+              {/* Ring */}
+              <div
+                className="w-[18px] h-[18px] sm:w-[22px] sm:h-[22px] rounded-full border-[2.5px] sm:border-[3px]"
+                style={{
+                  borderColor: "#c8c0b8",
+                  background: "transparent",
+                  boxShadow: "inset 0 1px 2px rgba(0,0,0,0.08), 0 1px 2px rgba(255,255,255,0.5)",
+                }}
+              />
+              {/* Chain link 1 */}
+              <div
+                className="w-[2px] h-[8px] sm:h-[10px] -mt-[1px]"
+                style={{
+                  background: "linear-gradient(180deg, #c8c0b8, #b8b0a8)",
+                  boxShadow: "0 0 2px rgba(0,0,0,0.1)",
+                }}
+              />
+              {/* Chain link 2 — oval */}
+              <div
+                className="w-[8px] h-[10px] sm:w-[10px] sm:h-[12px] rounded-full border-[2px] -mt-[1px]"
+                style={{
+                  borderColor: "#c0b8b0",
+                  background: "transparent",
+                }}
+              />
+              {/* Chain link 3 */}
+              <div
+                className="w-[2px] h-[6px] sm:h-[8px] -mt-[1px]"
+                style={{
+                  background: "linear-gradient(180deg, #b8b0a8, #c8c0b8)",
+                }}
+              />
+            </div>
+
+            {/* Mini stick */}
+            <div
+              className="flex flex-col items-center -mt-[1px]"
+              style={{
+                filter: "drop-shadow(0 6px 12px rgba(0,0,0,0.08)) drop-shadow(0 0 8px rgba(255,80,0,0.12))",
+              }}
+            >
+              {/* Mini cap */}
+              <div
+                className="w-[42px] sm:w-[52px] h-[10px] sm:h-[12px] rounded-t-full rounded-b-[2px] relative"
+                style={{
+                  background: "linear-gradient(148deg, #ffffff 0%, #f7f5f2 45%, #f0edea 100%)",
+                  boxShadow: "inset 0 2px 4px rgba(255,255,255,0.8), inset 0 -1px 2px rgba(0,0,0,0.04)",
+                }}
+              >
+                <div className="absolute -bottom-[1px] left-0 right-0 h-[1.5px] bg-[#e8e5e1]" />
+              </div>
+              {/* Mini body */}
+              <div
+                className="w-[42px] sm:w-[52px] h-[48px] sm:h-[58px] rounded-t-[2px] rounded-b-[5px] relative overflow-hidden"
+                style={{
+                  background: "linear-gradient(152deg, #ffffff 0%, #f8f6f3 30%, #f2f0ed 80%, #edeae7 100%)",
+                  boxShadow: "inset -2px 0 6px rgba(0,0,0,0.03), inset 2px 0 8px rgba(255,255,255,0.6), 0 1px 2px rgba(0,0,0,0.06)",
+                }}
+              >
+                {/* Left highlight */}
+                <div
+                  className="absolute top-0 left-[3px] w-[1px] h-full"
+                  style={{
+                    background: "linear-gradient(180deg, rgba(255,255,255,0.9) 0%, transparent 100%)",
+                  }}
+                />
+                {/* Mini label */}
+                <div className="absolute top-[30%] left-0 right-0 text-center">
+                  <span className="font-[family-name:var(--font-heading)] text-[3.5px] sm:text-[4px] tracking-[0.2em] text-[#1a1a1a]/[0.10] uppercase">
+                    Lil&apos; Shadow
+                  </span>
+                </div>
+                {/* Mini accent strip — orange */}
+                <motion.div
+                  className="absolute bottom-[3px] left-[6px] right-[6px] h-[2px] rounded-full"
+                  variants={pulseVariants}
+                  animate="animate"
+                  custom={3}
+                  style={{
+                    background: "rgb(255,80,0)",
+                    boxShadow: "0 0 6px rgba(255,80,0,0.3)",
+                  }}
+                />
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Keychain label */}
+          <motion.div
+            className="pt-6 sm:pt-8"
+            initial={{ opacity: 0, x: -10 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+          >
+            <div className="text-[9px] tracking-[0.32em] text-[rgba(255,80,0,0.45)] uppercase mb-1.5 font-[family-name:var(--font-heading)]">
+              Accessory
+            </div>
+            <div className="font-[family-name:var(--font-heading)] text-[16px] sm:text-[18px] font-bold text-[#1a1a1a]/80 leading-tight">
+              Keychain
+            </div>
+            <div className="text-[8px] sm:text-[9px] tracking-[0.2em] text-[#1a1a1a]/20 uppercase mt-1.5">
+              Mini SPF Stick &nbsp;·&nbsp; Clip Anywhere
+            </div>
+          </motion.div>
+        </motion.div>
 
         {/* Bottom bar */}
         <motion.div
