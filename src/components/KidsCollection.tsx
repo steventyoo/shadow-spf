@@ -1,63 +1,45 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 interface KidStick {
   name: string;
   collab: string;
   accent: string;
   accentGlow: string;
-  icon: React.ReactNode;
+  image?: string;
+  icon?: React.ReactNode;
 }
 
 const kidSticks: KidStick[] = [
   {
     name: "Mickey",
-    collab: "Shadow × Mickey",
+    collab: "Lil' Shadow × Mickey",
     accent: "rgb(230,40,40)",
     accentGlow: "rgba(230,40,40,0.3)",
-    icon: (
-      /* Mickey silhouette — three circles */
-      <svg width="32" height="28" viewBox="0 0 32 28" fill="none">
-        <circle cx="16" cy="16" r="10" fill="rgba(0,0,0,0.12)" />
-        <circle cx="6" cy="8" r="6" fill="rgba(0,0,0,0.12)" />
-        <circle cx="26" cy="8" r="6" fill="rgba(0,0,0,0.12)" />
-      </svg>
-    ),
+    image: "/kids/mickey.png",
   },
   {
     name: "Pikachu",
-    collab: "Shadow × Pikachu",
+    collab: "Lil' Shadow × Pikachu",
     accent: "rgb(255,203,5)",
     accentGlow: "rgba(255,203,5,0.35)",
-    icon: (
-      /* Lightning bolt */
-      <svg width="20" height="30" viewBox="0 0 20 30" fill="none">
-        <path d="M12 0L0 17h8l-4 13L20 12h-8l4-12z" fill="rgba(0,0,0,0.10)" />
-      </svg>
-    ),
+    image: "/kids/pikachu.png",
   },
   {
     name: "Hello Kitty",
-    collab: "Shadow × Hello Kitty",
+    collab: "Lil' Shadow × Hello Kitty",
     accent: "rgb(255,130,160)",
     accentGlow: "rgba(255,130,160,0.3)",
-    icon: (
-      /* Hello Kitty bow silhouette */
-      <svg width="30" height="24" viewBox="0 0 30 24" fill="none">
-        <circle cx="15" cy="13" r="9" fill="rgba(0,0,0,0.08)" />
-        <ellipse cx="8" cy="8" rx="6" ry="5" fill="rgba(255,130,160,0.15)" />
-        <ellipse cx="22" cy="8" rx="6" ry="5" fill="rgba(255,130,160,0.15)" />
-        <circle cx="15" cy="8" r="3" fill="rgba(255,130,160,0.18)" />
-      </svg>
-    ),
+    image: "/kids/hellokitty.png",
   },
 ];
 
-/* Touchland-size proportions: ~3.5" × 1.9" → ratio ≈ 1.84:1 */
+/* Touchland-size proportions + 1 inch taller (~25px) */
 const STICK_W = "w-[120px] sm:w-[150px]";
-const STICK_H = "h-[110px] sm:h-[138px]";
-const CAP_H = "h-[24px] sm:h-[30px]";
+const STICK_H = "h-[135px] sm:h-[164px]";
+const CAP_H = "h-[26px] sm:h-[32px]";
 
 /* Gentle float */
 const floatVariants = {
@@ -114,9 +96,9 @@ export default function KidsCollection() {
             </span>
           </div>
           <h2 className="font-[family-name:var(--font-heading)] text-4xl sm:text-5xl lg:text-[56px] font-bold leading-[1.05] text-[#1a1a1a] mb-3">
-            Shadow
+            Lil&apos;
             <br />
-            Kids
+            Shadow
           </h2>
           <p className="text-[11px] tracking-[0.2em] text-[#1a1a1a]/30 uppercase">
             서울 키즈 퍼포먼스 &nbsp;·&nbsp; SPF 50+ PA++++ &nbsp;·&nbsp; Pediatrician Tested
@@ -181,14 +163,24 @@ export default function KidsCollection() {
                     }}
                   />
 
-                  {/* Character icon centered */}
-                  <div className="absolute top-[28%] left-1/2 -translate-x-1/2">
-                    {stick.icon}
+                  {/* Character image or icon */}
+                  <div className="absolute top-[18%] left-1/2 -translate-x-1/2 w-[50px] h-[50px] sm:w-[60px] sm:h-[60px] flex items-center justify-center">
+                    {stick.image ? (
+                      <Image
+                        src={stick.image}
+                        alt={stick.name}
+                        width={60}
+                        height={60}
+                        className="object-contain opacity-[0.15] mix-blend-multiply"
+                      />
+                    ) : (
+                      stick.icon
+                    )}
                   </div>
 
                   {/* Collab label */}
-                  <div className="absolute bottom-[28px] left-0 right-0 text-center">
-                    <span className="font-[family-name:var(--font-heading)] text-[6px] sm:text-[7px] tracking-[0.3em] text-[#1a1a1a]/[0.12] uppercase">
+                  <div className="absolute bottom-[32px] left-0 right-0 text-center">
+                    <span className="font-[family-name:var(--font-heading)] text-[5.5px] sm:text-[6.5px] tracking-[0.25em] text-[#1a1a1a]/[0.12] uppercase">
                       {stick.collab}
                     </span>
                   </div>
