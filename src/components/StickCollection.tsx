@@ -2,7 +2,17 @@
 
 import { motion } from "framer-motion";
 
-const sticks = [
+interface Stick {
+  name: string;
+  label: string;
+  accent: string;
+  accentGlow: string;
+  height: string;
+  capH: string;
+  white?: boolean;
+}
+
+const sticks: Stick[] = [
   {
     name: "Hydro",
     label: "HYDRO",
@@ -27,7 +37,43 @@ const sticks = [
     height: "h-[220px] sm:h-[280px]",
     capH: "h-[34px] sm:h-[44px]",
   },
+  {
+    name: "Glow",
+    label: "GLOW",
+    accent: "rgb(220,170,160)",
+    accentGlow: "rgba(220,170,160,0.35)",
+    height: "h-[240px] sm:h-[300px]",
+    capH: "h-[36px] sm:h-[46px]",
+    white: true,
+  },
 ];
+
+/* Each stick floats independently with different timing */
+const floatVariants = {
+  animate: (i: number) => ({
+    y: [0, -8, 0, -5, 0],
+    transition: {
+      y: {
+        duration: 4 + i * 0.6,
+        repeat: Infinity,
+        ease: "easeInOut" as const,
+      },
+    },
+  }),
+};
+
+/* Accent strip pulses */
+const pulseVariants = {
+  animate: (i: number) => ({
+    opacity: [0.7, 1, 0.7],
+    scale: [1, 1.05, 1],
+    transition: {
+      duration: 2.5 + i * 0.4,
+      repeat: Infinity,
+      ease: "easeInOut" as const,
+    },
+  }),
+};
 
 export default function StickCollection() {
   return (
@@ -35,12 +81,14 @@ export default function StickCollection() {
       {/* Subtle grid texture */}
       <div className="absolute inset-0 grid-texture opacity-30" />
 
-      {/* Ambient glow behind sticks */}
-      <div
+      {/* Ambient glow behind sticks — breathing */}
+      <motion.div
         className="absolute inset-0 pointer-events-none"
+        animate={{ opacity: [0.6, 1, 0.6] }}
+        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
         style={{
           background:
-            "radial-gradient(ellipse 50% 60% at 50% 65%, rgba(255,80,0,0.04) 0%, transparent 70%)",
+            "radial-gradient(ellipse 60% 50% at 50% 65%, rgba(255,80,0,0.06) 0%, transparent 70%)",
         }}
       />
 
@@ -64,57 +112,72 @@ export default function StickCollection() {
         </motion.div>
 
         {/* Sticks row */}
-        <div className="flex items-end justify-center gap-6 sm:gap-10 lg:gap-14 mb-16 sm:mb-20">
+        <div className="flex items-end justify-center gap-5 sm:gap-8 lg:gap-12 mb-16 sm:mb-20">
           {sticks.map((stick, i) => (
             <motion.div
               key={stick.name}
               className="flex flex-col items-center"
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 60 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, margin: "-50px" }}
               transition={{
-                duration: 0.7,
-                delay: i * 0.12,
+                duration: 0.9,
+                delay: i * 0.15,
                 ease: [0.22, 1, 0.36, 1] as const,
               }}
             >
-              {/* Stick */}
-              <div
+              {/* Floating wrapper */}
+              <motion.div
                 className="relative flex flex-col items-center"
+                variants={floatVariants}
+                animate="animate"
+                custom={i}
                 style={{
-                  filter: `drop-shadow(0 25px 50px rgba(0,0,0,0.8)) drop-shadow(0 0 30px ${stick.accentGlow})`,
+                  filter: stick.white
+                    ? `drop-shadow(0 25px 50px rgba(0,0,0,0.5)) drop-shadow(0 0 40px ${stick.accentGlow})`
+                    : `drop-shadow(0 25px 50px rgba(0,0,0,0.8)) drop-shadow(0 0 30px ${stick.accentGlow})`,
                 }}
               >
                 {/* Cap */}
                 <div
-                  className={`w-[60px] sm:w-[78px] ${stick.capH} rounded-t-full rounded-b-[3px] relative`}
+                  className={`w-[56px] sm:w-[78px] ${stick.capH} rounded-t-full rounded-b-[3px] relative`}
                   style={{
-                    background:
-                      "linear-gradient(148deg, #262626 0%, #141414 45%, #1e1e1e 70%, #0f0f0f 100%)",
-                    boxShadow:
-                      "inset 0 3px 7px rgba(255,255,255,0.05), inset 0 -2px 4px rgba(0,0,0,0.35)",
+                    background: stick.white
+                      ? "linear-gradient(148deg, #f0ece8 0%, #e2ddd8 45%, #ebe7e3 70%, #d8d4d0 100%)"
+                      : "linear-gradient(148deg, #262626 0%, #141414 45%, #1e1e1e 70%, #0f0f0f 100%)",
+                    boxShadow: stick.white
+                      ? "inset 0 3px 7px rgba(255,255,255,0.6), inset 0 -2px 4px rgba(0,0,0,0.08)"
+                      : "inset 0 3px 7px rgba(255,255,255,0.05), inset 0 -2px 4px rgba(0,0,0,0.35)",
                   }}
                 >
                   {/* Cap seam */}
-                  <div className="absolute -bottom-[2px] left-0 right-0 h-[4px] bg-[#050505] rounded-b-sm" />
+                  <div
+                    className="absolute -bottom-[2px] left-0 right-0 h-[4px] rounded-b-sm"
+                    style={{
+                      background: stick.white ? "#c8c4c0" : "#050505",
+                    }}
+                  />
                 </div>
 
                 {/* Body */}
                 <div
-                  className={`w-[60px] sm:w-[78px] ${stick.height} rounded-t-[3px] rounded-b-[8px] relative overflow-hidden`}
+                  className={`w-[56px] sm:w-[78px] ${stick.height} rounded-t-[3px] rounded-b-[8px] relative overflow-hidden`}
                   style={{
-                    background:
-                      "linear-gradient(152deg, #1d1d1d 0%, #0e0e0e 30%, #1a1a1a 55%, #0c0c0c 80%, #0a0a0a 100%)",
-                    boxShadow:
-                      "inset -3px 0 10px rgba(0,0,0,0.55), inset 3px 0 12px rgba(255,255,255,0.03), inset 0 2px 4px rgba(255,255,255,0.05)",
+                    background: stick.white
+                      ? "linear-gradient(152deg, #ede9e5 0%, #e0dcd8 30%, #ebe7e3 55%, #d9d5d1 80%, #d5d1cd 100%)"
+                      : "linear-gradient(152deg, #1d1d1d 0%, #0e0e0e 30%, #1a1a1a 55%, #0c0c0c 80%, #0a0a0a 100%)",
+                    boxShadow: stick.white
+                      ? "inset -3px 0 10px rgba(0,0,0,0.06), inset 3px 0 12px rgba(255,255,255,0.4), inset 0 2px 4px rgba(255,255,255,0.3)"
+                      : "inset -3px 0 10px rgba(0,0,0,0.55), inset 3px 0 12px rgba(255,255,255,0.03), inset 0 2px 4px rgba(255,255,255,0.05)",
                   }}
                 >
                   {/* Left highlight */}
                   <div
                     className="absolute top-0 left-[4px] w-[1.5px] h-full rounded-sm"
                     style={{
-                      background:
-                        "linear-gradient(180deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 55%, transparent 100%)",
+                      background: stick.white
+                        ? "linear-gradient(180deg, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.3) 55%, transparent 100%)"
+                        : "linear-gradient(180deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 55%, transparent 100%)",
                     }}
                   />
 
@@ -126,28 +189,61 @@ export default function StickCollection() {
                       textOrientation: "mixed",
                     }}
                   >
-                    <span className="font-[family-name:var(--font-heading)] text-[10px] sm:text-[12px] tracking-[0.45em] text-white/[0.15] uppercase">
+                    <span
+                      className="font-[family-name:var(--font-heading)] text-[10px] sm:text-[12px] tracking-[0.45em] uppercase"
+                      style={{
+                        color: stick.white
+                          ? "rgba(120,110,100,0.35)"
+                          : "rgba(255,255,255,0.15)",
+                      }}
+                    >
                       {stick.label}
                     </span>
                   </div>
 
-                  {/* Colored accent strip at bottom */}
-                  <div
+                  {/* Colored accent strip at bottom — pulsing */}
+                  <motion.div
                     className="absolute bottom-[10px] left-[12px] right-[12px] h-[3px] sm:h-[4px] rounded-full"
+                    variants={pulseVariants}
+                    animate="animate"
+                    custom={i}
                     style={{
                       background: stick.accent,
-                      boxShadow: `0 0 12px ${stick.accentGlow}, 0 0 4px ${stick.accentGlow}`,
+                      boxShadow: `0 0 14px ${stick.accentGlow}, 0 0 6px ${stick.accentGlow}`,
                     }}
                   />
                 </div>
-              </div>
+
+                {/* Floor reflection for white stick */}
+                {stick.white && (
+                  <div
+                    className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-[50px] sm:w-[66px] h-[6px] blur-[6px] rounded-full"
+                    style={{
+                      background: "rgba(220,170,160,0.25)",
+                    }}
+                  />
+                )}
+              </motion.div>
 
               {/* Name label below */}
-              <div className="mt-4 sm:mt-5 text-center">
-                <span className="font-[family-name:var(--font-heading)] text-[10px] sm:text-[11px] tracking-[0.28em] text-white/30 uppercase">
+              <motion.div
+                className="mt-4 sm:mt-5 text-center"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.3 + i * 0.15 }}
+              >
+                <span
+                  className="font-[family-name:var(--font-heading)] text-[10px] sm:text-[11px] tracking-[0.28em] uppercase"
+                  style={{
+                    color: stick.white
+                      ? "rgba(220,170,160,0.5)"
+                      : "rgba(255,255,255,0.3)",
+                  }}
+                >
                   {stick.name}
                 </span>
-              </div>
+              </motion.div>
             </motion.div>
           ))}
         </div>
