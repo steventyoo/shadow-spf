@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import ZeroClaims from "@/components/ZeroClaims";
 import Product from "@/components/Product";
 import StickCollection from "@/components/StickCollection";
+import KidsCollection from "@/components/KidsCollection";
 import Formula from "@/components/Formula";
 import Testimonials from "@/components/Testimonials";
 import Athletes from "@/components/Athletes";
@@ -18,6 +19,7 @@ export default function Home() {
       <ZeroClaims />
       <Product />
       <StickCollection />
+      <KidsCollection />
       <Formula />
       <Testimonials />
       <Athletes />
