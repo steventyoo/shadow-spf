@@ -46,7 +46,7 @@ export default function AthleteSpotlight() {
             Matt Choi
           </h2>
           <p className="text-[11px] tracking-[0.2em] text-white/20 uppercase mt-2">
-            Runner &nbsp;·&nbsp; Creator &nbsp;·&nbsp; Ultramarathoner
+            Runner &nbsp;·&nbsp; Creator &nbsp;·&nbsp; Ultra Runner
           </p>
         </motion.div>
 
@@ -76,7 +76,7 @@ export default function AthleteSpotlight() {
                   MATT CHOI
                 </div>
                 <div className="text-[8px] tracking-[0.28em] text-white/30 uppercase">
-                  Marathon · Ultra · Golf
+                  Running · Ultra · Golf
                 </div>
               </div>
               <div className="text-[8px] tracking-[0.2em] text-[rgba(255,80,0,0.5)] uppercase">

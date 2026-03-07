@@ -4,10 +4,10 @@ import { motion } from "framer-motion";
 
 const testimonials = [
   {
-    quote: "Only sunscreen that doesn't drip into my eyes at mile 20. Game changer.",
+    quote: "Only sunscreen that doesn't drip into my eyes on long runs. Game changer.",
     name: "Sarah K.",
-    sport: "Marathon Runner",
-    detail: "Boston Qualifier",
+    sport: "Runner",
+    detail: "Ultra Distance",
   },
   {
     quote: "18 holes in 95°F Texas sun. Zero reapplication. Zero white cast on my grip.",
@@ -25,7 +25,7 @@ const testimonials = [
     quote: "Used it on a 50K trail in Joshua Tree. Sweat-proof is an understatement.",
     name: "David R.",
     sport: "Trail Runner",
-    detail: "Ultramarathoner",
+    detail: "Ultra Runner",
   },
 ];
 

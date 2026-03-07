@@ -39,7 +39,7 @@ export default function Athletes() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              Engineered for athletes who train in direct sun — marathon
+              Engineered for athletes who train in direct sun —
               runners, cyclists, golfers, and trail ultrarunners.
               One stick. Every discipline.
             </motion.p>

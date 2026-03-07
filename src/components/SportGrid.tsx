@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const sports = [
   {
-    label: "Marathon",
+    label: "Running",
     icon: (
       <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
         <circle cx="22" cy="5" r="3.5" fill="rgba(255,255,255,0.55)" />
