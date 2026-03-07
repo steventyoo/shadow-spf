@@ -36,9 +36,9 @@ export default function Waitlist() {
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.1 }}
         >
-          Be First.
+          Stay In
           <br />
-          <span className="text-[rgb(255,80,0)]">Run Harder.</span>
+          <span className="text-[rgb(255,80,0)]">The Shade.</span>
         </motion.h2>
 
         {/* Subtitle */}
