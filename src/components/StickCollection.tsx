@@ -9,7 +9,6 @@ interface Stick {
   accentGlow: string;
   height: string;
   capH: string;
-  white?: boolean;
 }
 
 const sticks: Stick[] = [
@@ -18,8 +17,8 @@ const sticks: Stick[] = [
     label: "HYDRO",
     accent: "rgb(60,130,255)",
     accentGlow: "rgba(60,130,255,0.35)",
-    height: "h-[130px] sm:h-[170px]",
-    capH: "h-[26px] sm:h-[34px]",
+    height: "h-[160px] sm:h-[210px]",
+    capH: "h-[30px] sm:h-[40px]",
   },
   {
     name: "Original",
@@ -34,17 +33,8 @@ const sticks: Stick[] = [
     label: "TRAIL",
     accent: "rgb(160,170,185)",
     accentGlow: "rgba(160,170,185,0.3)",
-    height: "h-[130px] sm:h-[170px]",
-    capH: "h-[26px] sm:h-[34px]",
-  },
-  {
-    name: "Glow",
-    label: "GLOW",
-    accent: "rgb(220,170,160)",
-    accentGlow: "rgba(220,170,160,0.35)",
-    height: "h-[140px] sm:h-[185px]",
-    capH: "h-[28px] sm:h-[36px]",
-    white: true,
+    height: "h-[160px] sm:h-[210px]",
+    capH: "h-[30px] sm:h-[40px]",
   },
 ];
 
@@ -133,28 +123,22 @@ export default function StickCollection() {
                 animate="animate"
                 custom={i}
                 style={{
-                  filter: stick.white
-                    ? `drop-shadow(0 25px 50px rgba(0,0,0,0.5)) drop-shadow(0 0 40px ${stick.accentGlow})`
-                    : `drop-shadow(0 25px 50px rgba(0,0,0,0.8)) drop-shadow(0 0 30px ${stick.accentGlow})`,
+                  filter: `drop-shadow(0 25px 50px rgba(0,0,0,0.8)) drop-shadow(0 0 30px ${stick.accentGlow})`,
                 }}
               >
                 {/* Cap */}
                 <div
                   className={`w-[100px] sm:w-[140px] ${stick.capH} rounded-t-full rounded-b-[3px] relative`}
                   style={{
-                    background: stick.white
-                      ? "linear-gradient(148deg, #f0ece8 0%, #e2ddd8 45%, #ebe7e3 70%, #d8d4d0 100%)"
-                      : "linear-gradient(148deg, #262626 0%, #141414 45%, #1e1e1e 70%, #0f0f0f 100%)",
-                    boxShadow: stick.white
-                      ? "inset 0 3px 7px rgba(255,255,255,0.6), inset 0 -2px 4px rgba(0,0,0,0.08)"
-                      : "inset 0 3px 7px rgba(255,255,255,0.05), inset 0 -2px 4px rgba(0,0,0,0.35)",
+                    background: "linear-gradient(148deg, #262626 0%, #141414 45%, #1e1e1e 70%, #0f0f0f 100%)",
+                    boxShadow: "inset 0 3px 7px rgba(255,255,255,0.05), inset 0 -2px 4px rgba(0,0,0,0.35)",
                   }}
                 >
                   {/* Cap seam */}
                   <div
                     className="absolute -bottom-[2px] left-0 right-0 h-[4px] rounded-b-sm"
                     style={{
-                      background: stick.white ? "#c8c4c0" : "#050505",
+                      background: "#050505",
                     }}
                   />
                 </div>
@@ -163,21 +147,15 @@ export default function StickCollection() {
                 <div
                   className={`w-[100px] sm:w-[140px] ${stick.height} rounded-t-[3px] rounded-b-[10px] relative overflow-hidden`}
                   style={{
-                    background: stick.white
-                      ? "linear-gradient(152deg, #ede9e5 0%, #e0dcd8 30%, #ebe7e3 55%, #d9d5d1 80%, #d5d1cd 100%)"
-                      : "linear-gradient(152deg, #1d1d1d 0%, #0e0e0e 30%, #1a1a1a 55%, #0c0c0c 80%, #0a0a0a 100%)",
-                    boxShadow: stick.white
-                      ? "inset -3px 0 10px rgba(0,0,0,0.06), inset 3px 0 12px rgba(255,255,255,0.4), inset 0 2px 4px rgba(255,255,255,0.3)"
-                      : "inset -3px 0 10px rgba(0,0,0,0.55), inset 3px 0 12px rgba(255,255,255,0.03), inset 0 2px 4px rgba(255,255,255,0.05)",
+                    background: "linear-gradient(152deg, #1d1d1d 0%, #0e0e0e 30%, #1a1a1a 55%, #0c0c0c 80%, #0a0a0a 100%)",
+                    boxShadow: "inset -3px 0 10px rgba(0,0,0,0.55), inset 3px 0 12px rgba(255,255,255,0.03), inset 0 2px 4px rgba(255,255,255,0.05)",
                   }}
                 >
                   {/* Left highlight */}
                   <div
                     className="absolute top-0 left-[4px] w-[1.5px] h-full rounded-sm"
                     style={{
-                      background: stick.white
-                        ? "linear-gradient(180deg, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.3) 55%, transparent 100%)"
-                        : "linear-gradient(180deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 55%, transparent 100%)",
+                      background: "linear-gradient(180deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 55%, transparent 100%)",
                     }}
                   />
 
@@ -192,9 +170,7 @@ export default function StickCollection() {
                     <span
                       className="font-[family-name:var(--font-heading)] text-[10px] sm:text-[12px] tracking-[0.45em] uppercase"
                       style={{
-                        color: stick.white
-                          ? "rgba(120,110,100,0.35)"
-                          : "rgba(255,255,255,0.15)",
+                        color: "rgba(255,255,255,0.15)",
                       }}
                     >
                       {stick.label}
@@ -214,15 +190,6 @@ export default function StickCollection() {
                   />
                 </div>
 
-                {/* Floor reflection for white stick */}
-                {stick.white && (
-                  <div
-                    className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-[85px] sm:w-[120px] h-[6px] blur-[6px] rounded-full"
-                    style={{
-                      background: "rgba(220,170,160,0.25)",
-                    }}
-                  />
-                )}
               </motion.div>
 
               {/* Name label below */}
@@ -236,9 +203,7 @@ export default function StickCollection() {
                 <span
                   className="font-[family-name:var(--font-heading)] text-[10px] sm:text-[11px] tracking-[0.28em] uppercase"
                   style={{
-                    color: stick.white
-                      ? "rgba(220,170,160,0.5)"
-                      : "rgba(255,255,255,0.3)",
+                    color: "rgba(255,255,255,0.3)",
                   }}
                 >
                   {stick.name}
