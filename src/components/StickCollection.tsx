@@ -65,6 +65,18 @@ const pulseVariants = {
   }),
 };
 
+/* Keychain swing */
+const swingVariants = {
+  animate: {
+    rotate: [0, 3, 0, -3, 0],
+    transition: {
+      duration: 5,
+      repeat: Infinity,
+      ease: "easeInOut" as const,
+    },
+  },
+};
+
 export default function StickCollection() {
   return (
     <section className="relative w-full bg-[#080808] overflow-hidden py-24 lg:py-32">
@@ -212,6 +224,81 @@ export default function StickCollection() {
             </motion.div>
           ))}
         </div>
+
+        {/* Keychain — bottom left */}
+        <motion.div
+          className="flex items-start gap-10 sm:gap-14 mb-16 sm:mb-20"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+        >
+          <motion.div
+            className="flex flex-col items-center"
+            variants={swingVariants}
+            animate="animate"
+            style={{ transformOrigin: "top center" }}
+          >
+            {/* Chain */}
+            <div className="flex flex-col items-center">
+              <div
+                className="w-[18px] h-[18px] sm:w-[22px] sm:h-[22px] rounded-full border-[2.5px] sm:border-[3px]"
+                style={{ borderColor: "#3a3a3a", boxShadow: "inset 0 1px 2px rgba(0,0,0,0.3), 0 1px 2px rgba(255,255,255,0.03)" }}
+              />
+              <div className="w-[2px] h-[8px] sm:h-[10px] -mt-[1px]" style={{ background: "linear-gradient(180deg, #3a3a3a, #2a2a2a)" }} />
+              <div className="w-[8px] h-[10px] sm:w-[10px] sm:h-[12px] rounded-full border-[2px] -mt-[1px]" style={{ borderColor: "#333" }} />
+              <div className="w-[2px] h-[6px] sm:h-[8px] -mt-[1px]" style={{ background: "linear-gradient(180deg, #2a2a2a, #3a3a3a)" }} />
+            </div>
+            {/* Mini dark stick */}
+            <div
+              className="flex flex-col items-center -mt-[1px]"
+              style={{ filter: "drop-shadow(0 6px 12px rgba(0,0,0,0.5)) drop-shadow(0 0 8px rgba(255,80,0,0.15))" }}
+            >
+              <div
+                className="w-[42px] sm:w-[52px] h-[10px] sm:h-[12px] rounded-t-full rounded-b-[2px] relative"
+                style={{ background: "linear-gradient(148deg, #262626 0%, #141414 45%, #0f0f0f 100%)", boxShadow: "inset 0 2px 4px rgba(255,255,255,0.05)" }}
+              >
+                <div className="absolute -bottom-[1px] left-0 right-0 h-[1.5px] bg-[#050505]" />
+              </div>
+              <div
+                className="w-[42px] sm:w-[52px] h-[48px] sm:h-[58px] rounded-t-[2px] rounded-b-[5px] relative overflow-hidden"
+                style={{ background: "linear-gradient(152deg, #1d1d1d 0%, #0e0e0e 30%, #0a0a0a 100%)", boxShadow: "inset -2px 0 6px rgba(0,0,0,0.5), inset 2px 0 8px rgba(255,255,255,0.02)" }}
+              >
+                <div className="absolute top-0 left-[3px] w-[1px] h-full" style={{ background: "linear-gradient(180deg, rgba(255,255,255,0.06) 0%, transparent 100%)" }} />
+                <div className="absolute top-[30%] left-0 right-0 text-center">
+                  <span className="font-[family-name:var(--font-heading)] text-[3.5px] sm:text-[4px] tracking-[0.2em] text-white/[0.08] uppercase">
+                    Shadow
+                  </span>
+                </div>
+                <motion.div
+                  className="absolute bottom-[3px] left-[6px] right-[6px] h-[2px] rounded-full"
+                  variants={pulseVariants}
+                  animate="animate"
+                  custom={3}
+                  style={{ background: "rgb(255,80,0)", boxShadow: "0 0 6px rgba(255,80,0,0.4)" }}
+                />
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            className="pt-6 sm:pt-8"
+            initial={{ opacity: 0, x: -10 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+          >
+            <div className="text-[9px] tracking-[0.32em] text-[rgba(255,80,0,0.45)] uppercase mb-1.5 font-[family-name:var(--font-heading)]">
+              Accessory
+            </div>
+            <div className="font-[family-name:var(--font-heading)] text-[16px] sm:text-[18px] font-bold text-white/80 leading-tight">
+              Keychain
+            </div>
+            <div className="text-[8px] sm:text-[9px] tracking-[0.2em] text-white/20 uppercase mt-1.5">
+              Mini SPF Stick &nbsp;·&nbsp; Clip Anywhere
+            </div>
+          </motion.div>
+        </motion.div>
 
         {/* Bottom bar */}
         <motion.div
