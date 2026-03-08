@@ -4,6 +4,7 @@ import ZeroClaims from "@/components/ZeroClaims";
 import Product from "@/components/Product";
 import StickCollection from "@/components/StickCollection";
 import KidsCollection from "@/components/KidsCollection";
+import DemonHunters from "@/components/DemonHunters";
 import Formula from "@/components/Formula";
 import Testimonials from "@/components/Testimonials";
 import Athletes from "@/components/Athletes";
@@ -20,6 +21,7 @@ export default function Home() {
       <Product />
       <StickCollection />
       <KidsCollection />
+      <DemonHunters />
       <Formula />
       <Testimonials />
       <Athletes />
